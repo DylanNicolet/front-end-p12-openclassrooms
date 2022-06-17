@@ -1,0 +1,38 @@
+.header{
+    width: 90%;
+    margin: 10px auto 0px auto;
+    display: flex;
+    
+    img{
+        width: 150px;
+        margin: 0;
+
+        @include desktop-only{
+            width: 190px;
+        }
+    }
+
+    nav{
+        margin-left: auto;
+    }
+
+    ul{
+        display: flex;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        list-style: none;
+    }
+
+    &__link{
+        color: $color-primary;
+        font-weight: 500;
+        font-size: 1rem;
+        margin-left: 40px;
+
+        @include desktop-only{
+            font-size: 1.2rem;
+        }
+    }
+}

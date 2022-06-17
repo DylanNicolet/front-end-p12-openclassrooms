@@ -1,0 +1,153 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body h1 {
+  font-size: 1.5rem;
+}
+
+body h2 {
+  font-size: 1rem;
+}
+
+body p {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 1260px) {
+  body h1 {
+    font-size: 1.7rem;
+  }
+}
+
+.header {
+  width: 90%;
+  margin: 10px auto 0px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header img {
+  width: 150px;
+  margin: 0;
+}
+
+@media only screen and (min-width: 1260px) {
+  .header img {
+    width: 190px;
+  }
+}
+
+.header nav {
+  margin-left: auto;
+}
+
+.header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.header__link {
+  color: #FF6060;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 40px;
+}
+
+@media only screen and (min-width: 1260px) {
+  .header__link {
+    font-size: 1.2rem;
+  }
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: default;
+  margin-top: 30px;
+}
+
+@media only screen and (min-width: 1260px) {
+  footer {
+    height: 90px;
+  }
+}
+
+footer img {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (min-width: 1260px) {
+  footer img {
+    width: 90px;
+    height: 30px;
+  }
+}
+
+footer p {
+  margin: 10px 0px 0px 0px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media only screen and (min-width: 1260px) {
+  footer p {
+    font-size: 1rem;
+  }
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,38 @@
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: $color-tertiary;
+    color: $color-secondary;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    margin-top: 30px;
+
+    @include desktop-only{
+        height: 90px;
+    }
+
+    img{
+        width: 80px;
+        height: auto;
+        display: block;
+        margin: auto;
+        @include no-select;
+
+        @include desktop-only{
+            width: 90px;
+            height: 30px;
+        }
+    }
+
+    p{
+        margin: 10px 0px 0px 0px;
+        @include no-select;
+
+        @include desktop-only{
+            font-size: 1rem;
+        }
+    }
+}
