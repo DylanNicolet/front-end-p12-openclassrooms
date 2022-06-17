@@ -8,8 +8,11 @@
 @import "./base/keyframes";
 
 @import "./components/buttons";
+@import "./components/macro";
 
 @import "./layouts/header";
 @import "./layouts/footer";
+@import "./layouts/main-content";
 
 @import "./pages/homepage";
+@import "./pages/profile";

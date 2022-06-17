@@ -1,38 +1,23 @@
-.header{
-    width: 90%;
-    margin: 10px auto 0px auto;
+header{
+    background-color: $color-primary;
+    color: $font-light;
     display: flex;
-    
-    img{
-        width: 150px;
-        margin: 0;
+    width: 100vw;
+    height: 7vh;
 
-        @include desktop-only{
-            width: 190px;
-        }
+    img{
+        width: 10vw;
+        margin: 10px 0px 10px 20px;
     }
 
     nav{
-        margin-left: auto;
+        width: 90vw;
+        height: auto;
     }
-
+    
     ul{
-        display: flex;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        align-items: center;
         list-style: none;
-    }
-
-    &__link{
-        color: $color-primary;
-        font-weight: 500;
-        font-size: 1rem;
-        margin-left: 40px;
-
-        @include desktop-only{
-            font-size: 1.2rem;
-        }
+        display: flex;
+        justify-content: space-around;
     }
 }
