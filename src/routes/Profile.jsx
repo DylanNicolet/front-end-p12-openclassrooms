@@ -1,4 +1,8 @@
 import React from "react";
+import DailyActivity from "../components/DailyActivity";
+import SessionDuration from "../components/SessionDuration";
+import ActivityType from "../components/ActivityType";
+import AverageScore from "../components/AverageScore";
 import Macro from "../components/Macro";
 import Calories from "../images/Calories.png";
 import Proteins from "../images/Proteins.png";
@@ -15,10 +19,10 @@ export default function Profile(){
             </section>
             <section className="profile-page__content">
                 <section className="profile-page__graphics">
-                    <section className="daily-activity"></section>
-                    <section className="speed graphics-small"></section>
-                    <section className="intensity graphics-small"></section>
-                    <section className="score graphics-small"></section>
+                    <DailyActivity />
+                    <SessionDuration />
+                    <ActivityType />
+                    <AverageScore />
                 </section>
                 <section className="profile-page__macros">
                     <Macro color="red" name="Calories" data="1,930kCal" icon={Calories} />

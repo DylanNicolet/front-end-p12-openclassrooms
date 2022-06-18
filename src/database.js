@@ -1,5 +1,4 @@
-{
-    const USER_MAIN_DATA=[
+const USER_MAIN_DATA=[
     {
         id: 12,
         userInfos: {
@@ -30,7 +29,7 @@
             lipidCount: 120
         }
     }
-    ]
+]
 
 const USER_ACTIVITY = [
     {
@@ -261,4 +260,4 @@ const USER_PERFORMANCE = [
             }
         ]
     }
-]}
+]
