@@ -1,5 +1,9 @@
 import React from "react";
 import Macro from "../components/Macro";
+import Calories from "../images/Calories.png";
+import Proteins from "../images/Proteins.png";
+import Carbs from "../images/Carbs.png";
+import Lipids from "../images/Lipids.png";
 
 export default function Profile(){
     return(
@@ -17,10 +21,10 @@ export default function Profile(){
                     <section className="score graphics-small"></section>
                 </section>
                 <section className="profile-page__macros">
-                    <Macro />
-                    <Macro />
-                    <Macro />
-                    <Macro />
+                    <Macro color="red" name="Calories" data="1,930kCal" icon={Calories} />
+                    <Macro color="blue" name="Proteins" data="1,930kCal" icon={Proteins} />
+                    <Macro color="yellow" name="Carbs" data="1,930kCal" icon={Carbs} />
+                    <Macro color="pink" name="Lipids" data="1,930kCal" icon={Lipids} />
                 </section>
             </section>
         </section>
