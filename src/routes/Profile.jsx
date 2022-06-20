@@ -8,13 +8,17 @@ import Calories from "../images/Calories.png";
 import Proteins from "../images/Proteins.png";
 import Carbs from "../images/Carbs.png";
 import Lipids from "../images/Lipids.png";
+import Api from "../api/Api.jsx";
+import axios from "axios";
+
 
 export default function Profile(){
+
     return(
         <section className="profile-page">
             <section className="banner">
                 <h1>Hello</h1>
-                <h1 className="banner__name">User</h1>
+                <h1 className="banner__name">user</h1>
                 <p>Congratulations! You reached yesterday’s goal! 👏</p>
             </section>
             <section className="profile-page__content">

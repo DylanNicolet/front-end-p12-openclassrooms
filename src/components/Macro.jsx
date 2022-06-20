@@ -1,4 +1,12 @@
 import React from "react";
+import propTypes, { string } from "prop-types";
+
+Macro.propTypes = {
+    color:propTypes.string,
+    icon:string,
+    name:string,
+    data:string
+}
 
 //props: color, icon, name, data
 export default function Macro(props){
