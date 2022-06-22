@@ -10,15 +10,32 @@ import Carbs from "../images/Carbs.png";
 import Lipids from "../images/Lipids.png";
 import Api from "../api/Api.jsx";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 
 export default function Profile(){
+    let params = useParams()
+    let userId = params.id
+
+    const [answer, setAnswer] = React.useState()
+
+    React.useEffect(() => {
+        axios.get(`http://localhost:3000/user/${userId}`)
+            .then(function (response) {
+                // handle success
+                setAnswer(response.data.data)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+    }, [])
 
     return(
         <section className="profile-page">
             <section className="banner">
                 <h1>Hello</h1>
-                <h1 className="banner__name">user</h1>
+                {answer && <h1 className="banner__name">{answer.userInfos.firstName}</h1>}
                 <p>Congratulations! You reached yesterday’s goal! 👏</p>
             </section>
             <section className="profile-page__content">
@@ -29,10 +46,10 @@ export default function Profile(){
                     <AverageScore />
                 </section>
                 <section className="profile-page__macros">
-                    <Macro color="red" name="Calories" data="1,930kCal" icon={Calories} />
-                    <Macro color="blue" name="Proteins" data="1,930kCal" icon={Proteins} />
-                    <Macro color="yellow" name="Carbs" data="1,930kCal" icon={Carbs} />
-                    <Macro color="pink" name="Lipids" data="1,930kCal" icon={Lipids} />
+                    {answer && <Macro color="red" name="Calories" data={answer.keyData.calorieCount} icon={Calories} unit="kCal" />}
+                    {answer && <Macro color="blue" name="Proteins" data={answer.keyData.proteinCount} icon={Proteins} unit="g"/>}
+                    {answer && <Macro color="yellow" name="Carbs" data={answer.keyData.carbohydrateCount} icon={Carbs} unit="g"/>}
+                    {answer && <Macro color="pink" name="Lipids" data={answer.keyData.lipidCount} icon={Lipids} unit="g"/>}
                 </section>
             </section>
         </section>

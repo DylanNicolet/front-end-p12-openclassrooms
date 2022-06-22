@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 
-export default function Api(){
+export default function Api(props){
     const [answer, setAnswer] = React.useState()
 
     React.useEffect(() => {
-        axios.get('http://localhost:3000/user/18/activity')
+        axios.get(`http://localhost:3000/user/${props.userId}`)
             .then(function (response) {
                 // handle success
                 setAnswer(response.data.data)
@@ -15,6 +15,5 @@ export default function Api(){
                 console.log(error);
             });
     }, [])
-
-    return(answer)
 }
+
