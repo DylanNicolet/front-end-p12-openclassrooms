@@ -217,12 +217,14 @@ header ul {
   -ms-grid-column-span: 3;
   grid-column: 1/4;
   border-radius: 5px;
+  background-color: #FBFBFB;
 }
 
 .graphics-small {
   width: 100%;
   height: 100%;
   border-radius: 5px;
+  background-color: #FBFBFB;
 }
 
 .banner {
