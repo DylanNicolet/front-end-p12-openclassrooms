@@ -22,12 +22,13 @@ export default function SessionDuration(){
     }, [])
 
     return(
-        <section className="speed graphics-small">
-            {answer && <ResponsiveContainer width="100%" height="100%">
-                <LineChart width={100} height={100} data={answer.sessions}>
-                    <XAxis dataKey="day" />
-                    <YAxis />
-                    <Line type="monotone" dataKey="sessionLength" />
+        <section className="speed graphics-small graphics-small--bg-red">
+            {answer && <ResponsiveContainer width="100%" height="100%" margin={0}>
+                <LineChart width={100} height={100} data={answer.sessions} margin={{ top: 0, right: 0, left: -60, bottom: 0 }}>
+                    <XAxis dataKey="day" axisLine={false} tickLine={false} padding={{left: 10, right:10}}/>
+                    <YAxis axisLine={false} tick={false}/>
+                    <Line type="basis" dataKey="sessionLength" stroke="#ffffff" strokeWidth={2} dot={false}/>
+                    <Tooltip />
                 </LineChart>
             </ResponsiveContainer>}
         </section>

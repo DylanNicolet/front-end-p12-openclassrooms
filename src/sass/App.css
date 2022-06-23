@@ -227,6 +227,10 @@ header ul {
   background-color: #FBFBFB;
 }
 
+.speed {
+  background-color: #FF0101;
+}
+
 .banner {
   display: -webkit-box;
   display: -ms-flexbox;
