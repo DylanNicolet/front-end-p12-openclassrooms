@@ -10,14 +10,25 @@ export default function DailyActivity(){
     let query = "activity" //route provided for API call
 
     let answer = Api(userId, query);
-
+    let mysessions = []
+    
+    //Create new data with "day" converted to a single number
+    if(answer){
+        mysessions = answer.sessions.map(sessionObj => (
+            {
+                kilogram:sessionObj.kilogram, 
+                calories:sessionObj.calories,
+                day:sessionObj.day.slice(-1)
+            }
+        )) 
+    }
 
     return(
         <section className="daily-activity">
             {answer && <ResponsiveContainer width="100%" height="100%">
-                <BarChart width={100} height={100} data={answer.sessions} barGap={8}>
+                <BarChart width={100} height={100} data={mysessions} barGap={8}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-                    <XAxis dataKey="day" tickMargin={10} />
+                    <XAxis dataKey={"day"} tickMargin={10} />
                     <YAxis yAxisId="weight" dataKey="kilogram"  orientation="right"  domain={["dataMin - 10","dataMax + 10"]} tickCount={4} axisLine={false} tickMargin={30}/>
                     <YAxis yAxisId="calories" dataKey="calories"  orientation="left"  domain={["dataMin - 20","dataMax + 20"]} tick={false} axisLine={false}/>
                     <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#FF0101' }}/>
