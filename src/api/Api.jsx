@@ -4,7 +4,6 @@ import axios from "axios";
 export default function Api(userId, query){
     const [answer, setAnswer] = React.useState()
 
-
     React.useEffect(() => {
         axios.get(`http://localhost:3000/user/${userId}/${query}`)
             .then(function (response) {
@@ -17,6 +16,6 @@ export default function Api(userId, query){
             });
     }, [])
 
-        return answer
+    return answer
 }
 

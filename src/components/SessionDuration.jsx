@@ -1,7 +1,6 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import Api from "../api/Api.jsx";
 
 export default function SessionDuration(){

@@ -9,27 +9,15 @@ import Proteins from "../images/Proteins.png";
 import Carbs from "../images/Carbs.png";
 import Lipids from "../images/Lipids.png";
 import Api from "../api/Api.jsx";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 
 
 export default function Profile(){
     let params = useParams()
     let userId = params.id
+    let query = "" //route provided for API call
 
-    const [answer, setAnswer] = React.useState()
-
-    React.useEffect(() => {
-        axios.get(`http://localhost:3000/user/${userId}`)
-            .then(function (response) {
-                // handle success
-                setAnswer(response.data.data)
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, [])
+    let answer = Api(userId, query)
 
     return(
         <section className="profile-page">
