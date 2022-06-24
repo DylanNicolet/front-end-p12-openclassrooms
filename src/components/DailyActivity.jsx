@@ -12,13 +12,35 @@ export default function DailyActivity(){
     let answer = Api(userId, query);
     let mysessions = []
     
-    //Create new data with "day" converted to a single number
+    //provide the day without "0" if it's a single digit number
+    function filterWhenTwoDigits(obj){
+        if(obj.charAt(obj.length - 2) === "0"){
+            return obj.slice(-1)
+        } else {
+            return obj.slice(-2)
+        }
+    }
+
+    /*let testData =  [
+        {
+            day: '2020-07-01',
+            kilogram: 80,
+            calories: 240
+        },
+        {
+            day: '2020-07-15',
+            kilogram: 80,
+            calories: 220
+        },
+    ]*/ //un-comment this chuck and replace "answer.sessions" below with "testData" to test the filter function
+    
+    //Create new data array with "day" converted to a single number
     if(answer){
         mysessions = answer.sessions.map(sessionObj => (
             {
                 kilogram:sessionObj.kilogram, 
                 calories:sessionObj.calories,
-                day:sessionObj.day.slice(-1)
+                day:filterWhenTwoDigits(sessionObj.day)
             }
         )) 
     }
