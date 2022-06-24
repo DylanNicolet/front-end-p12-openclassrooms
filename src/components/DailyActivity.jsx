@@ -1,26 +1,15 @@
 import React from "react";
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend} from "recharts";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import Api from "../api/Api.jsx";
 
 
 export default function DailyActivity(){
     let params = useParams()
     let userId = params.id
+    let query = "activity" //route provided for API call
 
-    const [answer, setAnswer] = React.useState()
-
-    React.useEffect(() => {
-        axios.get(`http://localhost:3000/user/${userId}/activity`)
-            .then(function (response) {
-                // handle success
-                setAnswer(response.data.data)
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, [])
+    let answer = Api(userId, query);
 
 
     return(
@@ -31,10 +20,9 @@ export default function DailyActivity(){
                     <XAxis dataKey="day" tickMargin={10} />
                     <YAxis yAxisId="weight" dataKey="kilogram"  orientation="right"  domain={["dataMin - 10","dataMax + 10"]} tickCount={4} axisLine={false} tickMargin={30}/>
                     <YAxis yAxisId="calories" dataKey="calories"  orientation="left"  domain={["dataMin - 20","dataMax + 20"]} tick={false} axisLine={false}/>
-                    <Tooltip />
+                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#FF0101' }}/>
                     <Bar yAxisId="weight" dataKey="kilogram" barSize={10} radius={[10,10,0,0]}/>
                     <Bar yAxisId="calories" dataKey="calories" fill="#FF0101" width="2px" barSize={10} radius={[10,10,0,0]} name={"calories"}/>
-                    <Tooltip />
                     <Legend verticalAlign="top" align="right" iconType={"circle"} height={40} payload={[{ value: 'weight (kg)', type: 'circle', id: 'weight' },{ value: 'Burned calories (kCal)', type: 'circle', id: 'ID02' }]} />
                 </BarChart>
             </ResponsiveContainer>}

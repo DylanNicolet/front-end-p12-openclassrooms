@@ -2,24 +2,14 @@ import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Api from "../api/Api.jsx";
 
 export default function SessionDuration(){
     let params = useParams()
     let userId = params.id
+    let query = "average-sessions" //route provided for API call
 
-    const [answer, setAnswer] = React.useState()
-
-    React.useEffect(() => {
-        axios.get(`http://localhost:3000/user/${userId}/average-sessions`)
-            .then(function (response) {
-                // handle success
-                setAnswer(response.data.data)
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, [])
+    let answer = Api(userId, query);
 
     return(
         <section className="speed graphics-small graphics-small--bg-red">

@@ -1,26 +1,14 @@
 import React from "react";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, RadialBar } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import Api from "../api/Api.jsx";
 
 export default function ActivityType(){
     let params = useParams()
     let userId = params.id
+    let query = "performance" //route provided for API call
 
-    const [answer, setAnswer] = React.useState()
-
-    //use "performance" instead of "activites" as suggested by the Kanban(Notion)
-    React.useEffect(() => {
-        axios.get(`http://localhost:3000/user/${userId}/performance`)
-            .then(function (response) {
-                // handle success
-                setAnswer(response.data.data)
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
-    }, [])
+    let answer = Api(userId, query);
 
     return(
         <section className="intensity graphics-small">
@@ -32,6 +20,5 @@ export default function ActivityType(){
                 </RadarChart>
             </ResponsiveContainer>}
         </section>
-        
     )
 }
