@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart, Bar, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend} from "recharts";
+import { BarChart, Bar, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { useParams } from "react-router-dom";
 import Api from "../api/Api.jsx";
 
@@ -12,7 +12,7 @@ export default function DailyActivity(){
     let answer = Api(userId, query);
     let mysessions = []
     
-    //provide the day without "0" if it's a single digit number
+    //return the day without "0" if it's a single digit number
     function filterWhenTwoDigits(obj){
         if(obj.charAt(obj.length - 2) === "0"){
             return obj.slice(-1)
@@ -20,19 +20,6 @@ export default function DailyActivity(){
             return obj.slice(-2)
         }
     }
-
-    /*let testData =  [
-        {
-            day: '2020-07-01',
-            kilogram: 80,
-            calories: 240
-        },
-        {
-            day: '2020-07-15',
-            kilogram: 80,
-            calories: 220
-        },
-    ]*/ //un-comment this chuck and replace "answer.sessions" below with "testData" to test the filter function
     
     //Create new data array with "day" converted to a single number
     if(answer){
@@ -45,18 +32,36 @@ export default function DailyActivity(){
         )) 
     }
 
+    const CustomTooltip = ({ active, payload, label }) => {
+        if (active) {
+          return (
+            <div>
+             <section className="daily-activity__custom-tooltip">
+                <p>{payload[0].payload.kilogram}Kg</p>
+                <p>{payload[0].payload.calories}Kcal</p>
+             </section>
+            </div>
+          )
+        }
+    
+        return null
+    }
+
     return(
         <section className="daily-activity">
+            <h2>Daily Activity</h2>
+            <section className="daily-activity__legend">
+                <p className="black-dot">&#x2022;</p><p className="legend-text">Weight (kg)</p><p className="red-dot">&#x2022;</p><p className="legend-text">Burned calories (kCal)</p>
+            </section>
             {answer && <ResponsiveContainer width="100%" height="100%">
-                <BarChart width={100} height={100} data={mysessions} barGap={8}>
+                <BarChart width={100} height={100} data={mysessions} barGap={8} margin={{top:40, right:0, bottom:5, left:-20}}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-                    <XAxis dataKey={"day"} tickMargin={10} />
-                    <YAxis yAxisId="weight" dataKey="kilogram"  orientation="right"  domain={["dataMin - 10","dataMax + 10"]} tickCount={4} axisLine={false} tickMargin={30}/>
-                    <YAxis yAxisId="calories" dataKey="calories"  orientation="left"  domain={["dataMin - 20","dataMax + 20"]} tick={false} axisLine={false}/>
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#FF0101' }}/>
+                    <XAxis dataKey={"day"} tickMargin={7}  tickLine={false}/>
+                    <YAxis yAxisId="weight" dataKey="kilogram"  orientation="right"  domain={["dataMin - 10","dataMax + 10"]} tickCount={4} axisLine={false} tickMargin={20} tickLine={false}/>
+                    <YAxis yAxisId="calories" dataKey="calories"  orientation="left"  domain={["dataMin - 20","dataMax + 20"]} tick={false} axisLine={false} />
+                    <Tooltip content={CustomTooltip} />
                     <Bar yAxisId="weight" dataKey="kilogram" barSize={10} radius={[10,10,0,0]}/>
                     <Bar yAxisId="calories" dataKey="calories" fill="#FF0101" width="2px" barSize={10} radius={[10,10,0,0]} name={"calories"}/>
-                    <Legend verticalAlign="top" align="right" iconType={"circle"} height={40} payload={[{ value: 'weight (kg)', type: 'circle', id: 'weight' },{ value: 'Burned calories (kCal)', type: 'circle', id: 'ID02' }]} />
                 </BarChart>
             </ResponsiveContainer>}
         </section>

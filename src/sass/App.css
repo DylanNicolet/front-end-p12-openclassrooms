@@ -42,9 +42,9 @@ body p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -64,6 +64,7 @@ body p {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 15px;
+  margin-left: 20px;
 }
 
 .macro h1 {
@@ -89,6 +90,58 @@ body p {
 
 .pink {
   background-color: rgba(253, 81, 130, 0.07);
+}
+
+.daily-activity {
+  position: relative;
+}
+
+.daily-activity h2 {
+  position: absolute;
+  left: 30px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.daily-activity__legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: -7px;
+}
+
+.daily-activity tspan {
+  fill: #9B9EAC;
+  font-size: 13px;
+}
+
+.black-dot {
+  margin: 5px 5px 0px 0px;
+  font-size: 30px;
+}
+
+.red-dot {
+  color: #FF0101;
+  margin: 5px 5px 0px 10px;
+  font-size: 30px;
+}
+
+.legend-text {
+  color: #74798C;
+  font-size: 14px;
+}
+
+.daily-activity__custom-tooltip {
+  background-color: #FF0101;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+}
+
+.daily-activity__custom-tooltip p {
+  font-size: 13px;
 }
 
 header {
