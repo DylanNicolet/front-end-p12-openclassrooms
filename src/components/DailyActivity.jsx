@@ -43,7 +43,6 @@ export default function DailyActivity(){
             </div>
           )
         }
-    
         return null
     }
 

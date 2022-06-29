@@ -144,6 +144,36 @@ body p {
   font-size: 13px;
 }
 
+.session-duration {
+  position: relative;
+  background-color: #FF0000;
+}
+
+.session-duration h2 {
+  color: #ffffffab;
+  margin: 18px;
+  position: absolute;
+  font-size: 11px;
+  font-weight: 400;
+  width: 50%;
+}
+
+.session-duration tspan {
+  fill: #ffffffa4;
+  font-size: 13px;
+}
+
+.session-duration__custom-tooltip {
+  background-color: white;
+  color: black;
+  padding: 1px 10px;
+  text-align: center;
+}
+
+.session-duration__custom-tooltip p {
+  font-size: 11px;
+}
+
 header {
   background-color: #000000;
   color: white;
@@ -277,11 +307,6 @@ header ul {
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: #FBFBFB;
-}
-
-.speed {
-  background-color: #FF0101;
 }
 
 .banner {
@@ -302,7 +327,7 @@ header ul {
 }
 
 .banner__name {
-  color: #FF0101;
+  color: #FF0000;
 }
 
 .banner p {
