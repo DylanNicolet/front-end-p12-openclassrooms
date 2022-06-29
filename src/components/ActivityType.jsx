@@ -9,14 +9,32 @@ export default function ActivityType(){
     let query = "performance" //route provided for API call
 
     let answer = Api(userId, query);
+    let mysessions = []
+
+    //return kind as the activity name listed in answer.kind
+    function refactorKind(data){
+        let newKind = answer.kind[data].charAt(0).toUpperCase() + answer.kind[data].slice(1)
+        return newKind
+    }
+
+    //create new data array with refactored "kind" into the activity name and reverse the order
+    if(answer){
+        mysessions = answer.data.map(dataObj => (
+            {
+                value:dataObj.value,
+                kind:refactorKind(dataObj.kind)
+            }
+        )).reverse()
+    }
+
 
     return(
-        <section className="intensity graphics-small">
+        <section className="activity-type graphics-small">
             {answer && <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={answer.data}>
-                    <PolarGrid/>
-                    <PolarAngleAxis dataKey="kind"/>
-                    <Radar dataKey="value" fill="#FF0101" fillOpacity={0.6} />
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={mysessions} margin={ {top: 0, right: 50, bottom: 0, left: 5 }}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="kind" axisLine={false} tickLine={false}/>
+                    <Radar dataKey="value" fill="#FF0101" fillOpacity={0.8} />
                 </RadarChart>
             </ResponsiveContainer>}
         </section>
