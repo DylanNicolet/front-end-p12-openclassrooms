@@ -183,6 +183,37 @@ body p {
   font-size: 10px;
 }
 
+.average-score {
+  background-color: #FBFBFB;
+  position: relative;
+}
+
+.average-score h2 {
+  margin: 0;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.average-score__text {
+  position: absolute;
+  top: 75px;
+  left: 73px;
+  text-align: center;
+  width: 50px;
+}
+
+.average-score__text h3 {
+  margin: 0;
+}
+
+.average-score__text p {
+  margin: 5px 0 0 0;
+  color: #74798C;
+}
+
 header {
   background-color: #000000;
   color: white;

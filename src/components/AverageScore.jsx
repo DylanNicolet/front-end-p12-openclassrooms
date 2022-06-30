@@ -12,11 +12,23 @@ export default function AverageScore(){
 
   let answer = Api(userId, query)
   let data = []
-  if(answer){data = [{score:answer.todayScore, max:1}]} // add max:1 to set a reference max value for Recharts
+  let averageScorePercentage = ""
+
+  if(answer){
+    data = [{score:answer.todayScore, max:1}]// add max:1 to set a reference max value for Recharts
+    averageScorePercentage = `${answer.todayScore*100}%`
+  } 
+
+  
   
 
   return(
-    <section className="score graphics-small">
+    <section className="average-score graphics-small">
+        <h2>Score</h2>
+        <section className="average-score__text">
+          <h3>{averageScorePercentage}</h3>
+          <p>of your goal</p>
+        </section>
         {answer && <ResponsiveContainer width="100%" height="100%" className="score graphics-small">
         <RadialBarChart cx="50%" cy="50%" innerRadius="80%" outerRadius="80%" barSize={5} data={data} startAngle={90} endAngle={450}>
           <RadialBar
@@ -24,6 +36,7 @@ export default function AverageScore(){
             background
             clockWise
             dataKey="score"
+            cornerRadius={15}
           ><Cell fill="#FF0101"/></RadialBar>
           <RadialBar
             minAngle={15}
