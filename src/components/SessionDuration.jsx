@@ -3,6 +3,15 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "rec
 import { useParams } from "react-router-dom";
 import Api from "../api/Api.jsx";
 
+/**
+ * Component for displaying average session length on a line chart
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <SessionDuration />
+ * )
+ */
 export default function SessionDuration(){
     let params = useParams()
     let userId = params.id
@@ -11,7 +20,11 @@ export default function SessionDuration(){
     let answer = Api(userId, query)
     let mysessions = []
 
-    //return the day as the first letter of the week (in french as per figma)
+    /**
+     * returns a letter that represents the first letter of the inputed day's name (in french)
+     * @param   {number} day  Number representing the day of the week
+     * @returns {string}      First letter of the inputed day's name
+     */
     function refactorDay(day){
         let letters = ["L","M","M","J","V","S","D"]
         return(letters[day-1])
@@ -27,6 +40,7 @@ export default function SessionDuration(){
         )) 
     }
 
+    //Custom Recharts tooltip for hovering on the line chart
     const CustomTooltip = ({ active, payload, label }) => {
         if (active) {
           return (

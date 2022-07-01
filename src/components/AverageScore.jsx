@@ -3,7 +3,15 @@ import { RadialBarChart, RadialBar, ResponsiveContainer, Cell } from 'recharts';
 import { useParams } from "react-router-dom";
 import Api from "../api/Api.jsx";
 
-
+/**
+ * Component to display the user's average score as a RadialBarChart
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <AverageScore />
+ * ) 
+ */
 export default function AverageScore(){
 
   let params = useParams()
@@ -18,9 +26,6 @@ export default function AverageScore(){
     data = [{score:answer.todayScore, max:1}]// add max:1 to set a reference max value for Recharts
     averageScorePercentage = `${answer.todayScore*100}%`
   } 
-
-  
-  
 
   return(
     <section className="average-score graphics-small">

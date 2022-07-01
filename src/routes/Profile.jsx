@@ -11,7 +11,15 @@ import Lipids from "../images/Lipids.png";
 import Api from "../api/Api.jsx";
 import { useParams } from "react-router-dom";
 
-
+/**
+ * Component to generate the whole Profile page on the app
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <Profile />
+ * ) 
+ */
 export default function Profile(){
     let params = useParams()
     let userId = params.id

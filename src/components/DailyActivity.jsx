@@ -3,7 +3,15 @@ import { BarChart, Bar, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Toolti
 import { useParams } from "react-router-dom";
 import Api from "../api/Api.jsx";
 
-
+/**
+ * Component to display the user's daily activity on a bar chart
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <DailyActivity />
+ * ) 
+ */
 export default function DailyActivity(){
     let params = useParams()
     let userId = params.id
@@ -12,12 +20,16 @@ export default function DailyActivity(){
     let answer = Api(userId, query);
     let mysessions = []
     
-    //return the day without "0" if it's a single digit number
-    function filterWhenTwoDigits(obj){
-        if(obj.charAt(obj.length - 2) === "0"){
-            return obj.slice(-1)
+    /**
+     * return day as a single digit if day starts with number 0 
+     * @param   {string} day Date of the session
+     * @returns {string}     Either a 1 character day or a 2 character day 
+     */
+    function filterWhenTwoDigits(day){
+        if(day.charAt(day.length - 2) === "0"){
+            return day.slice(-1)
         } else {
-            return obj.slice(-2)
+            return day.slice(-2)
         }
     }
     
@@ -32,6 +44,7 @@ export default function DailyActivity(){
         )) 
     }
 
+    //Custom Recharts tooltip for hovering on the barchart
     const CustomTooltip = ({ active, payload, label }) => {
         if (active) {
           return (

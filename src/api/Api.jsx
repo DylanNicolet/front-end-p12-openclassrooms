@@ -1,6 +1,12 @@
 import React from "react";
 import axios from "axios";
 
+/**
+ * returns data provided by the API call to the backend 
+ * @param   {string} userId User's ID provided by useParams from the URL
+ * @param   {string} query  Route provided for making API calls
+ * @returns {object}        object containing all requested data from the backend
+ */
 export default function Api(userId, query){
     const [answer, setAnswer] = React.useState()
 
@@ -18,4 +24,3 @@ export default function Api(userId, query){
 
     return answer
 }
-

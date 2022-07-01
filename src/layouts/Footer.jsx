@@ -4,6 +4,15 @@ import swimming from "../images/swimming.png";
 import bike from "../images/bike.png";
 import dumbell from "../images/dumbell.png";
 
+/**
+ * Component to display a footer
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <Footer />
+ * ) 
+ */
 export default function Footer(){
     return(
         <footer className="footer">

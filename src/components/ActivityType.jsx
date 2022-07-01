@@ -3,6 +3,15 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } fro
 import { useParams } from "react-router-dom";
 import Api from "../api/Api.jsx";
 
+/**
+ * Component to display type of activity performed on a radar chart
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <ActivityType />
+ * )
+ */
 export default function ActivityType(){
     let params = useParams()
     let userId = params.id
@@ -12,6 +21,11 @@ export default function ActivityType(){
     let mysessions = []
 
     //return kind as the activity name listed in answer.kind
+    /**
+     * returns the provided numerical kind  as the name matching answer.kind
+     * @param   {number} data Number provided by the API
+     * @returns {string}      Name of the type of activity
+     */
     function refactorKind(data){
         let newKind = answer.kind[data].charAt(0).toUpperCase() + answer.kind[data].slice(1)
         return newKind

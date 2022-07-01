@@ -1,15 +1,22 @@
 import React from "react";
-import propTypes, { number, string } from "prop-types";
+import propTypes from "prop-types";
 
-Macro.propTypes = {
-    color:propTypes.string,
-    icon:string,
-    name:string,
-    data:number,
-    unit:string
-}
 
-//props: color, icon, name, data, unit
+
+/**
+ * Component for displaying the user's key information (nutritional macros)
+ * 
+ * @component
+ * @example
+ * const color = "red"
+ * const icon = "../images/Calories.png"
+ * const name = "Calories"
+ * const data = 1500
+ * const unit = "Kcal"
+ * @returns (
+ *  <Macro color={color} icon={icon} name={name} data={data} unit={unit}
+ * )
+ */
 export default function Macro(props){
     return(
         <section className="macro">
@@ -22,4 +29,32 @@ export default function Macro(props){
             </section>
         </section>
     )
+}
+
+Macro.propTypes = {
+
+    /**
+     * Color of the icon's background
+     */
+    color:propTypes.string,
+
+    /**
+     * Source of the icon image in the repository
+     */
+    icon:propTypes.string,
+
+    /**
+     * Name of the macro to be displayed under the value
+     */
+    name:propTypes.string,
+
+    /**
+     * Numerical data of the desired macro
+     */
+    data:propTypes.number,
+
+    /**
+     * Unit to be displayed after the value
+     */
+    unit:propTypes.string
 }

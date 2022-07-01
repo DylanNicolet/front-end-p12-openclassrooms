@@ -1,7 +1,15 @@
 import React from "react";
 import logo from "../images/logo.png";
 
-
+/**
+ * Component to display a header
+ * 
+ * @component
+ * @example
+ * @returns (
+ *  <Header />
+ * ) 
+ */
 export default function Header(){
     return(
         <header>
