@@ -15,7 +15,6 @@ import { useParams } from "react-router-dom";
  * Component to generate the whole Profile page on the app
  * 
  * @component
- * @example
  * @returns (
  *  <Profile />
  * ) 

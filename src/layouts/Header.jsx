@@ -5,7 +5,6 @@ import logo from "../images/logo.png";
  * Component to display a header
  * 
  * @component
- * @example
  * @returns (
  *  <Header />
  * ) 

@@ -7,7 +7,6 @@ import Api from "../api/Api.jsx";
  * Component for displaying average session length on a line chart
  * 
  * @component
- * @example
  * @returns (
  *  <SessionDuration />
  * )

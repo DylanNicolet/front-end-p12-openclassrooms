@@ -7,7 +7,6 @@ import Api from "../api/Api.jsx";
  * Component to display the user's average score as a RadialBarChart
  * 
  * @component
- * @example
  * @returns (
  *  <AverageScore />
  * ) 

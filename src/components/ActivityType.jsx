@@ -7,7 +7,6 @@ import Api from "../api/Api.jsx";
  * Component to display type of activity performed on a radar chart
  * 
  * @component
- * @example
  * @returns (
  *  <ActivityType />
  * )

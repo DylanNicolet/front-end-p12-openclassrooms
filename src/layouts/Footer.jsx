@@ -8,7 +8,6 @@ import dumbell from "../images/dumbell.png";
  * Component to display a footer
  * 
  * @component
- * @example
  * @returns (
  *  <Footer />
  * ) 
