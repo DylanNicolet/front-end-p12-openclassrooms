@@ -34,10 +34,9 @@ export default function AverageScore(){
           <p>of your goal</p>
         </section>
         {answer && <ResponsiveContainer width="100%" height="100%" className="score graphics-small">
-        <RadialBarChart cx="50%" cy="50%" innerRadius="80%" outerRadius="80%" barSize={5} data={data} startAngle={90} endAngle={450}>
+        <RadialBarChart cx="50%" cy="50%" innerRadius="80%" outerRadius="80%" barSize={9} data={data} startAngle={90} endAngle={450}>
           <RadialBar
             minAngle={15}
-            background
             clockWise
             dataKey="score"
             cornerRadius={15}

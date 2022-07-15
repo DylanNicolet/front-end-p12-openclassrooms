@@ -13,7 +13,7 @@
     &__graphics{
         display: grid;
         grid-template: repeat(2,1fr)/repeat(3,1fr);
-        grid-gap: 10px;
+        grid-gap: 20px 10px;
         width: 600px;
         height: 100%;
     }
